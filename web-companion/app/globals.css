@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+/* Paleta iz mobilne app (src/theme/colors.ts, svetla tema) – "vintage travel stamp". */
+@theme {
+  --color-cream: #f1e6d2;
+  --color-surface: #fbf6ea;
+  --color-surface-muted: #eadfc5;
+  --color-sand: #dfd0b4;
+  --color-terracotta: #c1553a;
+  --color-terracotta-dark: #a2432c;
+  --color-terracotta-text: #9a402a;
+  --color-teal: #2f6e6a;
+  --color-ink: #3a2e1f;
+  --color-ink-2: #6b5a46;
+  --color-ink-3: #6f5e49;
+  --color-danger: #b23b3b;
+  --font-serif: var(--font-playfair), Georgia, serif;
+}
+
+html {
+  background: var(--color-cream);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  /* 16 px pisava prepreči, da bi iOS Safari ob fokusu povečal stran; višina ≥ 44 px za touch. */
+  .field {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 12px;
+    border: 1px solid var(--color-sand);
+    background: var(--color-surface);
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--color-ink);
+    outline: none;
+  }
+  .field:focus {
+    border-color: var(--color-terracotta);
+  }
+  .field-error {
+    border-color: var(--color-danger);
+  }
+  .field-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: var(--color-ink-2);
+  }
+  .section-title {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-2);
+  }
+  .btn {
+    display: inline-flex;
+    min-height: 48px;
+    min-width: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 14px;
+    padding: 0 18px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .btn:disabled {
+    opacity: 0.6;
+  }
+  .btn-primary {
+    background: var(--color-terracotta);
+    color: #fff;
+  }
+  .btn-primary:active {
+    background: var(--color-terracotta-dark);
+  }
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid var(--color-sand);
+  }
+  .btn-danger {
+    background: transparent;
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+  }
+  .error-text {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-danger);
+  }
+}
